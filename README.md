@@ -1,10 +1,10 @@
-Everseen Models
+Models
 ---------------
 
 The models and scripts can be downloaded from here:
 https://drive.google.com/open?id=1gnC0JQ8ty_MHpPco4VuW-FNaB8Uq7i0z
 
-### Customer Problem
+###  Problem
 
 For conversion to RT we have the following models:
 - model1 = old school tensorflow convolutional network with no concat and no batch-norm
@@ -239,17 +239,7 @@ Model #1 – ~1.83x speedup of TF-TRT FP16 (gpu) over native TF FP32 (gpu)
 Model #2 – ~1.48x speedup of TF-TRT FP16 (gpu) over native TF FP32 (gpu)
 Model #3 – ~2.0x speedup of TF-TRT FP16 (gpu) over native TF FP32 (gpu)
 Model #4 – Wait for TRT 6 or resume advising on how to modify code to work with TRT 5. More details below in the Results section.
- 
-If you and your team can run the code and reproduce the below benchmarks on your end, that would be really helpful – if all looks good, we can conclude the TensorRT portion of our engagement and fully move to optimizing other parts of the application like pre-processing using Dali or end-to-end application using DeepStream.
- 
-You can find the code to reproduce these model optimizations here on a secure Google Drive: https://drive.google.com/file/d/1LW3tHhXtKi8AL0tDj9aM-fekZjKZpU5J/view?usp
- 
-I found some time for us to connect next Tuesday and review. Let us know if there’s a better date/time that works.
- 
-Next Steps:
-Everseen team to review and reproduce TensorRT optimization code.
-Discuss identifying other bottlenecks and GPU-accelerating these. We believe that decoding and inference are near speed-of-light; if we can accelerate other pieces that are bottlenecks (pre-processing, data migration, end-to-end with DeepStream, etc.), we can further increase camera stream density for the application.
- 
+   
 Results
  
 These models were benchmarked on the Tesla T4 using batch size 1. The code is flexible and can accommodate different input image dimensions and batch sizes.
@@ -277,6 +267,6 @@ Speedup of TF-TRT over TF is: 2.061161158225604x
  
 Model #4
  
-With the restriction of providing a script to modify the PyTorch ONNX code, we might not be able to address optimizing model #4 until TensorRT 6 is release – TensorRT 6 will allow us to handle dynamic input shapes (as opposed to modifying the original torchvision.models pre-trained models and hardcoding the input shapes). Alternatively, we can return to the original path of advising on how to modify the ResNet50 model class defined in torchvision.models with different operations that are compatible with TensorRT 5 and optimize that model using TensorRT 5. We can discuss this in more detail when we chat next.
+With the restriction of providing a script to modify the PyTorch ONNX code, we might not be able to address optimizing model  Alternatively, we can return to the original path of advising on how to modify the ResNet50 model class defined in torchvision.models with different operations that are compatible with TensorRT 5 and optimize that model using TensorRT 5.
 ```
 
