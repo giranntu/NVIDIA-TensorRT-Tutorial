@@ -2,7 +2,7 @@ Models
 ---------------
 
 The models and scripts can be downloaded from here:
-https://drive.google.com/open?id=1gnC0JQ8ty_MHpPco4VuW-FNaB8Uq7i0z
+https://drive.google.com/drive/folders/1WdaNuBGBV8UsI8RHGVR4PMx8JjXamzcF?usp=sharing
 
 ###  Problem
 
